@@ -1,19 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Movies from "./components/Movies";
+import Watchlist from "./components/Watchlist";
+import Banner from "./components/Banner";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  
-
   return (
     <>
-    <div className='bg-red-200 w-1/2 h-3 text-red-300'>
-      <p className='font-extrabold '>hello</p>
-      </div>
-      
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<><Banner/> <Movies /></>} />
+          <Route path="/Watchlist" element={<Watchlist />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
