@@ -8,7 +8,12 @@ function MovieCard({ title, poster }) {
         backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster})`,
       }}
     >
-      <h1 className='text-2xl text-white bg-gray-900 w-full text-center opacity-45'>{title}</h1>
+
+      <div className="bg-gray-200 ">
+        &#128525;
+      </div>
+
+     <div className="mt-0"> <h1 className='text-2xl text-white bg-gray-900 w-full text-center opacity-45'>{title}</h1></div>
     </div>
   );
 }
