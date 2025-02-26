@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 //import watchList from 'movies.jsx'
 
-function Watchlist({ watchList,removeFromWatchList }) {
+function Watchlist({ watchList,removeFromWatchList,SetWatchList }) {
+
+  const [Search,setSearch] = useState('')
+
+
+  let handleSearch = (e)=>{
+    setSearch(e.target.value)
+  }
+
+  
+  let ascendSort = ()=>{
+    let ascendWatchList = watchList.sort((a,b)=>
+       b.vote_average - a.vote_average
+  )
+    SetWatchList([...ascendWatchList])
+  }
+
+  let descendSort = ()=>{
+    let descendWatchList= watchList.sort((a,b)=>a.vote_average - b.vote_average)
+    SetWatchList([...descendWatchList])
+  }
+
   return (
     <>
       <div className="flex items-center gap-3 justify-center mt-6 ">
@@ -20,7 +41,7 @@ function Watchlist({ watchList,removeFromWatchList }) {
         <input
           type="text"
           className="bg-gray-400 h-[3rem] w-[18rem] px-4 outline-none"
-          placeholder="Search for movies"
+          placeholder="Search for movies" onChange={handleSearch} value={Search}
         />
       </div>
       <div className="max-w-screen m-6  bg-gray-200">
@@ -28,13 +49,19 @@ function Watchlist({ watchList,removeFromWatchList }) {
           <thead className="">
             <tr className=" shadow-md w-full">
               <th className="">Name</th>
-              <th>Ratings</th>
+              <th className="flex gap-2 justify-center">
+                <div ><i onClick={descendSort} class="fa fa-arrow-up" aria-hidden="true"></i></div>
+               <div>Ratings</div> 
+               <div><i onClick={ascendSort} class="fa fa-arrow-down" aria-hidden="true"></i></div>
+                </th>
               <th>Popularity</th>
               <th>Genre</th>
             </tr>
           </thead>
           <tbody className="border-gray-50">
-            {watchList.map((movie) => (
+            {watchList.filter((movie)=>{
+              return movie.title.toLowerCase().includes(Search.toLowerCase())
+            }).map((movie) => (
               <tr className="">
                 <td className="flex items-center text-center">
                   <img
