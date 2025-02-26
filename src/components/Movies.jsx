@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 import axios from "axios";
 import Pagination from "./Pagination";
 
-function Movies() {
+function Movies({watchList,addToWatchList,removeFromWatchList}) {
   const [movies, setMovies] = useState([]);
   const [pageNo, setPageNo] = useState(1);
 
@@ -32,6 +32,28 @@ https://api.themoviedb.org/3/movie/popular?api_key=c9faaad8733e99dd34704cf8744eb
       });
   }, [pageNo]);
 
+
+  // const [watchList,SetWatchList] = useState([]);
+
+  // let addToWatchList = (movie)=>{
+
+  //   let newWatchList = [...watchList,movie]
+  //   SetWatchList(newWatchList)
+  //   console.log(watchList);
+    
+  // }
+
+  // let removeFromWatchList = (movie)=>{
+  //   let filteredWatchList = watchList.filter((cur_movie)=>{
+  //      return cur_movie.id!=movie.id
+  //   })
+  //   SetWatchList(filteredWatchList)
+  //   console.log(watchList)
+  // }
+
+
+ 
+
   return (
     <div>
       <div className="p-5">
@@ -40,7 +62,7 @@ https://api.themoviedb.org/3/movie/popular?api_key=c9faaad8733e99dd34704cf8744eb
         </h1>
         <div className="flex flex-wrap ">
           {movies.map((movie) => (
-            <MovieCard title={movie.title} poster={movie.poster_path} />
+            <MovieCard key={movie.id} movie={movie} title={movie.title} poster={movie.poster_path} addToWatchList={addToWatchList} watchList={watchList} removeFromWatchList={removeFromWatchList} />
            ))}
         </div>
       </div>
