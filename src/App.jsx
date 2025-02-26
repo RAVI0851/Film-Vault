@@ -20,7 +20,7 @@ function App() {
     let newWatchList = [...watchList,movie]
     localStorage.setItem('moviesApp',JSON.stringify(newWatchList))
     SetWatchList(newWatchList)
-    console.log(watchList);
+  
     
   }
 
