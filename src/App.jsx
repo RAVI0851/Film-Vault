@@ -20,7 +20,7 @@ function App() {
     let newWatchList = [...watchList,movie]
     localStorage.setItem('moviesApp',JSON.stringify(newWatchList))
     SetWatchList(newWatchList)
-  
+    console.log(watchList);
     
   }
 
@@ -29,6 +29,7 @@ function App() {
        return cur_movie.id!=movie.id
     })
     SetWatchList(filteredWatchList)
+    localStorage.setItem('moviesApp',JSON.stringify(filteredWatchList))
     console.log(watchList)
   }
 
