@@ -32,28 +32,6 @@ https://api.themoviedb.org/3/movie/popular?api_key=c9faaad8733e99dd34704cf8744eb
       });
   }, [pageNo]);
 
-
-  // const [watchList,SetWatchList] = useState([]);
-
-  // let addToWatchList = (movie)=>{
-
-  //   let newWatchList = [...watchList,movie]
-  //   SetWatchList(newWatchList)
-  //   console.log(watchList);
-    
-  // }
-
-  // let removeFromWatchList = (movie)=>{
-  //   let filteredWatchList = watchList.filter((cur_movie)=>{
-  //      return cur_movie.id!=movie.id
-  //   })
-  //   SetWatchList(filteredWatchList)
-  //   console.log(watchList)
-  // }
-
-
- 
-
   return (
     <div>
       <div className="p-5">

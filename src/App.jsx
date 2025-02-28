@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Movies from "./components/Movies";
 import Watchlist from "./components/Watchlist";
 import Banner from "./components/Banner";
+import Footer from "./components/Footer";
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -48,6 +49,7 @@ function App() {
           <Route path="/" element={<><Banner/> <Movies watchList={watchList} addToWatchList={addToWatchList} removeFromWatchList={removeFromWatchList} /></>} />
           <Route path="/Watchlist" element={<Watchlist watchList={watchList} removeFromWatchList={removeFromWatchList} SetWatchList={SetWatchList} />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );

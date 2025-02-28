@@ -42,6 +42,8 @@ function Watchlist({ watchList,removeFromWatchList,SetWatchList }) {
     let popularitySortedWatchList = watchList.sort((a,b)=>b.popularity-a.popularity)
     SetWatchList([...popularitySortedWatchList])
   }
+
+  //Sorting based on ratings,,popularity
   const handleSort = (e)=>{
     const selected_val = e.target.value;
     if(selected_val==="high"){
