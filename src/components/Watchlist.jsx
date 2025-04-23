@@ -7,13 +7,13 @@ function Watchlist({ watchList,removeFromWatchList,SetWatchList }) {
   const [Genre , setGenre] = useState(['All genres'])
   const [curGenre,setCurGenre] = useState('All genres')
 
-  useEffect((movie)=>{
+  useEffect(()=>{
     let temp = watchList.map((movie)=>{
-      return genres[movie.genre_ids[0]]
-    })
+      return movie.genres[0]
+    });
     temp = new Set(temp)
     setGenre(['All genres',...temp])
-    console.log(Genre);
+    console.log(temp);
     
   },[watchList])
 
@@ -28,18 +28,18 @@ function Watchlist({ watchList,removeFromWatchList,SetWatchList }) {
   
   let ascendSort = ()=>{
     let ascendWatchList = watchList.sort((a,b)=>
-       a.vote_average - b.vote_average
+       a.averageRating - b.averageRating
   )
     SetWatchList([...ascendWatchList])
   }
 
   let descendSort = ()=>{
-    let descendWatchList= watchList.sort((a,b)=>b.vote_average - a.vote_average)
+    let descendWatchList= watchList.sort((a,b)=>b.averageRating - a.averageRating)
     SetWatchList([...descendWatchList])
   }
 
   let popularitySort = ()=>{
-    let popularitySortedWatchList = watchList.sort((a,b)=>b.popularity-a.popularity)
+    let popularitySortedWatchList = watchList.sort((a,b)=>b.numVotes-a.numVotes)
     SetWatchList([...popularitySortedWatchList])
   }
 
@@ -105,24 +105,24 @@ function Watchlist({ watchList,removeFromWatchList,SetWatchList }) {
               if (curGenre=='All genres') {
                 return true
               } else {
-                return genres[movie.genre_ids[0]]===curGenre;
+                return movie.genres[0]===curGenre;
               }
               
             }).filter((movie)=>{
-              return movie.title.toLowerCase().includes(Search.toLowerCase())
+              return movie.originalTitle?.toLowerCase().includes(Search.toLowerCase())
             }).map((movie) => (
               <tr className="">
                 <td className="flex items-center text-center">
                   <img
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    src={`${movie.primaryImage}`}
                     className="h-[6rem] w-[10rem] m-2 "
                     alt="poster"
                   />
-                  <h1 className="">{movie.title}</h1>
+                  <h1 className="">{movie.originalTitle}</h1>
                 </td>
-                <td>{movie.vote_average}</td>
-                <td>{movie.popularity}</td>
-                <td>{genres[movie.genre_ids[0]]}</td>
+                <td>{movie.averageRating}</td>
+                <td>{movie.numVotes}</td>
+                <td>{movie.genres[0]}</td>
                 <td className="font-bold text-2xl text-red-400 text-center hover:cursor-pointer" onClick={()=>{removeFromWatchList(movie)}} >
                   Delete
                 </td>

@@ -13,9 +13,9 @@ function MovieCard({ title, poster, movie, addToWatchList ,watchList,removeFromW
 
   return (
     <div
-      className="w-[11rem] h-[40vh] bg-center bg-cover flex border flex-col justify-between items-end rounded-xl hover:scale-110 duration-300 hover:cursor-pointer m-1"
+      className="w-[17rem] h-[40vh] bg-center bg-cover flex border flex-col justify-between items-end rounded-xl hover:scale-110 duration-300 hover:cursor-pointer m-2"
       style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster})`,
+        backgroundImage: `url(${poster})`,
       }}
     >
       {doesContain(movie) ?
