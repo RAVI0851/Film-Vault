@@ -9,6 +9,12 @@ function Footer() {
         <div className="text-center md:text-left mb-4 md:mb-0">
           <h2 className="text-xl font-semibold">MovieApp</h2>
           <p className="text-gray-400 text-sm">© {new Date().getFullYear()} All Rights Reserved.</p>
+          <p className="flex p-1">Made with ❤️ by ~ Rav
+          <a href="https://www.linkedin.com/in/ravindra-naga/" target="_blank"><i className="fa-brands fa-linkedin fa-x hover:scale-130 bg-blue-600 "></i></a>dra
+          </p>
+          <p>Check out my work here ~
+            <a href="https://raviin.vercel.app/">🔗</a>
+          </p>
         </div>
 
         {/* Right Section */}
