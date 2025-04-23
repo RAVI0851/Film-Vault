@@ -20,4 +20,4 @@ API Integration: tmdb API for movie data
 Hosting: Vercel
 
 Link:"https://movies-eta-green.vercel.app/"
-Note: If tmdb is not available in your region use vpn or proxy
+
