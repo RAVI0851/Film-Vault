@@ -62,15 +62,15 @@ function Watchlist({ watchList,removeFromWatchList,SetWatchList }) {
 
   return (
     <>
-      <div className="flex items-center gap-3 justify-center mt-6 ">
+      <div className="flex items-center gap-3 justify-center mt-6 flex-wrap ">
        {Genre.map((genre)=>{
-         return <button onClick={()=>handlegenre(genre)} className={curGenre==genre?"bg-blue-500 h-[3rem] w-[8rem] rounded-xl text-white text-center":"bg-gray-500 h-[3rem] w-[8rem] rounded-xl text-white text-center"}>
+         return <button onClick={()=>handlegenre(genre)} className={curGenre==genre?"bg-blue-500 h-[3rem] w-[8rem] hover:cursor-pointer rounded-xl text-white text-center":"bg-gray-500 h-[3rem] w-[8rem] rounded-xl text-white text-center"}>
           {genre}
         </button>
         })}
       </div>
 
-      <div className="flex justify-center items-center h-[10rem]  text-white gap-7">
+      <div className="flex justify-center items-center h-[10rem]  text-white gap-7 flex-wrap">
         <input
           type="text"
           className="bg-gray-400 h-[3rem] w-[18rem] px-4 outline-none"
@@ -79,7 +79,7 @@ function Watchlist({ watchList,removeFromWatchList,SetWatchList }) {
         <div className="h-[3rem] items-center p-1  hover:border hover:bg-gray-500 hover:text-white rounded-xl text-black flex hover:cursor-pointer">
         <div className="" ><i  class="fa fa-arrow-up" aria-hidden="true"></i></div>
         <div><i  class="fa fa-arrow-down" aria-hidden="true"></i></div>
-          <select name="Sort" id="" onChange={handleSort}>
+          <select name="Sort" id="" onChange={handleSort} className="rounded hover:bg-black">
             <option disabled selected>Sort by</option>
             <option value="high">Ratings(High to low)</option>
             <option value="low">Ratings(Low to High)</option>
@@ -88,15 +88,15 @@ function Watchlist({ watchList,removeFromWatchList,SetWatchList }) {
           </select>
         </div>
       </div>
-      <div className="max-w-screen m-6  bg-gray-200">
-        <table className=" border-gray-50 text-center w-full gap-1.5">
-          <thead className="">
-            <tr className=" shadow-md w-full">
+      <div className=" flex w-full m-6  bg-gray-200 overflow-x-auto">
+        <table className=" border-gray-50 text-center min-w-[700px] whitespace-nowrap w-full gap-1.5">
+          <thead className="whitespace-nowrap gap-1">
+            <tr className=" shadow-md w-full gap-1">
               <th className="">Name</th>
-              <th className="flex gap-2 justify-center">
-               <div>Ratings</div> 
+              <th className="">
+               <div className="m-1">Ratings</div> 
                 </th>
-              <th>Popularity</th>
+              <th className="m-2">Popularity</th>
               <th>Genre</th>
             </tr>
           </thead>

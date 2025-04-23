@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import axios from "axios";
 import Pagination from "./Pagination";
+import Skeleton from "./Skeleton";
 
 function Movies({ watchList, addToWatchList, removeFromWatchList }) {
   const [movies, setMovies] = useState([]);
   const [pageNo, setPageNo] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   const itemsPerPage = 25;
 
@@ -28,6 +30,7 @@ const totalPages = 10;
   }
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchMovies = async () => {
       const options = {
         method: 'GET',
@@ -41,6 +44,7 @@ const totalPages = 10;
       try {
         const response = await axios.request(options);
         setMovies(response.data);
+        setIsLoading(false);
         console.log(response.data);
       } catch (error) {
         console.error(error);
@@ -57,8 +61,10 @@ const totalPages = 10;
         <h1 className="m-2 border-2 rounded-2xl text-2xl font-black text-center">
           Popular Movies
         </h1>
-        <div className="flex flex-wrap">
-          {displayedMovies?.map((movie) => (
+        <div className="flex flex-wrap justify-center">
+          {isLoading 
+          ?Array.from({length:25}).map((_,i)=><Skeleton key={i}/>)
+          :displayedMovies?.map((movie) => (
             <MovieCard
               key={movie.id}
               movie={movie}

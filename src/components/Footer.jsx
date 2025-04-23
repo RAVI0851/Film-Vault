@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-4 mt-">
+    <footer className="bg-gray-900 text-white py-4 ">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
         
         {/* Left Section */}
