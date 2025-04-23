@@ -1,8 +1,23 @@
-# React + Vite
+Film Vault
+Film Vault is a sleek and user-friendly web application designed to catalog and organize your movie collection. Whether you're a casual movie-watcher or a die-hard cinephile, Film Vault provides an intuitive interface to manage, search, and explore your favorite films with ease.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Movie Search: Quickly find movies by title, director, genre, or release year.
 
-Currently, two official plugins are available:
+Detailed Information: Access comprehensive details about each film, including synopsis, cast, crew, and more.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Personalized Lists: Create and manage custom movie lists, such as "Must Watch," "Favorites," or "Watched."
+
+User Ratings & Reviews: Rate and review movies to share your thoughts with other users.
+
+Responsive Design: Enjoy a seamless experience on both desktop and mobile devices.
+
+Technologies Used
+Frontend: React, Redux, and Tailwind
+
+API Integration: tmdb API for movie data
+
+Hosting: Vercel
+
+Link:"https://movies-eta-green.vercel.app/"
+Note: If tmdb is not available in your region use vpn or proxy
