@@ -34,7 +34,7 @@ const totalPages = 10;
     const fetchMovies = async () => {
       const options = {
         method: 'GET',
-        url: 'https://imdb236.p.rapidapi.com/imdb/top250-movies',
+        url: 'https://imdb236.p.rapidapi.com/api/imdb/top250-movies',
         headers: {
           'x-rapidapi-key': '18f06ddb7fmsh678ee94df9c8155p106b2ajsnb504764c9a6e',
           'x-rapidapi-host': 'imdb236.p.rapidapi.com'
